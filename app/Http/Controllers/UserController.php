@@ -11,10 +11,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::find(1);
+        $users = User::find(2);
 
         return Inertia::render('Users', [
-            'users' => $users
+            'user' => $users,
+            'title' => 'ola mundo',
         ]);
     }
 }

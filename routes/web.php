@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +17,16 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return inertia::render('Users');
+    return view('home');
 });
-Route::get('/prod', function () {
-    return view('produtos');
+
+
+Route::get('/test', function () {
+    $title = 'ola mundo';
+    $user = User::find(1);
+    return Inertia::render('Home',[
+        'title'=> $title,
+        'user'=> $user
+    ]);
 });
+Route::get('/users',[UserController::class,'index'])->name('users.index');

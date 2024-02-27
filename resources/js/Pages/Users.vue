@@ -1,6 +1,3 @@
-<script setup>
-defineProps({ user: Object })
-</script>
 
 <template>
   <Layout>
@@ -9,3 +6,11 @@ defineProps({ user: Object })
     <p>Hello {{ user.name }}, welcome to your first Inertia app!</p>
   </Layout>
 </template>
+
+<script>
+export default {
+  props: {
+    user: Object
+  }
+}
+</script>
