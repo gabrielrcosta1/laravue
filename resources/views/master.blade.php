@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LaraVue</title>
+    @vite('resources/js/app.js')
+    @inertiaHead
 </head>
 <body>
     
     <div id="app">
         @yield("content")
     </div>
-    @vite('resources/js/app.js')
+   
+    @inertia
 </body>
 </html>
