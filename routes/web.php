@@ -17,16 +17,13 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
-
-
-Route::get('/test', function () {
     $title = 'ola mundo';
-    $user = User::find(1);
+    $user = User::all();
     return Inertia::render('Home',[
         'title'=> $title,
-        'user'=> $user
+        'users'=> $user
     ]);
 });
+
+
 Route::get('/users',[UserController::class,'index'])->name('users.index');
