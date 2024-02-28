@@ -1,7 +1,23 @@
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
+
+
+
 createInertiaApp({
+  progress: {
+    // The delay after which the progress bar will appear, in milliseconds...
+    delay: 250,
+
+    // The color of the progress bar...
+    color: '#29d',
+
+    // Whether to include the default NProgress styles...
+    includeCSS: true,
+
+    // Whether the NProgress spinner will be shown...
+    showSpinner: false,
+  },
   resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
     return pages[`./Pages/${name}.vue`]
@@ -9,11 +25,7 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     const app = createApp({ render: () => h(App, props) })
       .use(plugin);
-
-    // Registra o componente Link globalmente
     app.component('Link', Link);
-
-    // Monta o aplicativo no elemento DOM
     app.mount(el);
   },
 })
