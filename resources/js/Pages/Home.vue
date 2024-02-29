@@ -14,6 +14,7 @@ function submit() {
 </script>
 
 <template>
+  <Link href="/login"></Link>
   <form @submit.prevent="submit">
     <label for="name"> name:</label>
     <input id="name" v-model="form.name" />

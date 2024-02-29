@@ -16,16 +16,16 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     $title = 'ola mundo';
     $user = User::all();
     return Inertia::render('Home',[
         'title'=> $title,
         'users'=> $user
     ]);
-});
+})->middleware('guest')->name('login');
 
 
-Route::get('/users',[UserController::class,'index'])->name('users.index');
+Route::get('/home',[UserController::class,'index'])->name('home.index')->middleware('auth');
 
 Route::post('/users',[UserController::class,'store'])->name('users.store');
