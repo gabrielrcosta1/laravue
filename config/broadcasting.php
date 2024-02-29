@@ -42,7 +42,7 @@ return [
                 'encrypted' => true,
                 'useTLS' => env('PUSHER_SCHEME') === 'https',
             ],
-        ],,
+        ],
 
         'ably' => [
             'driver' => 'ably',

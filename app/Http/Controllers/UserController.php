@@ -29,6 +29,6 @@ class UserController extends Controller
           'password'=> ['required','min:4'],
         ]));
         Auth::login($user);
-        return to_route('users.index');
+        return to_route('home.index');
     }
 }

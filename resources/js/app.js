@@ -4,6 +4,7 @@ import { Link } from '@inertiajs/vue3'
 
 
 
+
 createInertiaApp({
   progress: {
     // The delay after which the progress bar will appear, in milliseconds...

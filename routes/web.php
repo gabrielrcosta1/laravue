@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CountController;
 use App\Http\Controllers\UserController;
+use App\Models\Count;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,7 +27,18 @@ Route::get('/login', function () {
     ]);
 })->middleware('guest')->name('login');
 
+Route::get('/counte', function () {
+    $title = 'ola mundo';
+    $user = User::all();
+    return Inertia::render('Home',[
+        'title'=> $title,
+        'users'=> $user
+    ]);
+});
 
-Route::get('/home',[UserController::class,'index'])->name('home.index')->middleware('auth');
 
-Route::post('/users',[UserController::class,'store'])->name('users.store');
+Route::get('/counter',[CountController::class,'index'])->name('home.index');
+Route::post('/counter/increment', [CountController::class, 'increment']);
+// Route::get('/counte', [CountController::class, 'show']);
+// Route::post('/counter/increment', [CountController::class, 'increment']);
+// Route::post('/users',[UserController::class,'store'])->name('users.store');
