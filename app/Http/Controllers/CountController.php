@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageEvent;
 use App\Models\Count;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -22,5 +23,6 @@ class CountController extends Controller
         $count = Count::firstOrFail();
         $count->value += 1;
         $count->save();
+        MessageEvent::dispatch();
     }
 }
